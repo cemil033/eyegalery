@@ -1,0 +1,68 @@
+﻿<Window x:Class="EyeGalary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EyeGalary"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="EyePhotos" Height="1080" Width="1920"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        Loaded="Window_Loaded"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="14*"></RowDefinition>
+        </Grid.RowDefinitions>
+            <Menu
+                IsMainMenu="True"
+                Height="48">
+                <MenuItem
+                    Header="_File">
+                    <MenuItem
+                        Click="Open_MenuItem_Click"
+                        Header="Open"
+                        Icon="{materialDesign:PackIcon Kind=FolderOpenOutline}"></MenuItem>
+                    <MenuItem
+                        Click="MenuItem_Click"
+                        Header="New"
+                        Icon="{materialDesign:PackIcon Kind=ContentSave}"></MenuItem>                    
+                    <MenuItem
+                        Header="Exit"                        
+                        Icon="{materialDesign:PackIcon Kind=ExitToApp}" />                    
+                </MenuItem>                
+                <MenuItem
+                    Header="_Edit">
+                    <MenuItem
+                        Click="addf_MenuItem_Click"
+                        Header="_Add File"                        
+                        Icon="{materialDesign:PackIcon Kind=FileImagePlus}" />
+                    <MenuItem
+                        Click="adf_MenuItem_Click"
+                        Header="_Add Folder"                        
+                        Icon="{materialDesign:PackIcon Kind=FolderPlus}" />                    
+                </MenuItem>
+                <MenuItem
+                    Header="_View">
+                <RadioButton Name="tiles"  Checked="RadioButton_Checked" Content="Tiles"></RadioButton>
+                <RadioButton Name="sm_ico" Checked="RadioButton_Checked" Content="Small icons"> </RadioButton>
+                <RadioButton Name="dtl" Checked="RadioButton_Checked" Content="Details"></RadioButton>
+            </MenuItem>
+            <MenuItem
+                    Header="_About"></MenuItem>
+        </Menu>
+        <Frame Grid.Row="1" Name="tils" Visibility="Visible">
+            
+        </Frame>
+        
+    </Grid>
+</Window>

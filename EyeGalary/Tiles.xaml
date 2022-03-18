@@ -1,0 +1,44 @@
+﻿<Page x:Class="EyeGalary.Tiles"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EyeGalary" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Tiles"
+      Background="White"
+      >
+
+    <Grid>
+        <ListBox Name="lst" ItemsSource="{Binding Photos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <materialDesign:Card
+                         Background="{DynamicResource PrimaryHueDarkBrush}"
+                         Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                         Width="200"
+                         Padding="8"
+                         UniformCornerRadius="6"
+                         MouseDoubleClick="Card_MouseDoubleClick"
+                        >
+                        <StackPanel>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding path,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock Margin="8" Text="{Binding title ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                            <TextBlock Margin="8" Text="{Binding time,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                        </StackPanel>
+                    </materialDesign:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>
